@@ -17,7 +17,7 @@ void App::start()
 	// in Windows at least, this must be called before creating the window
 	_screenScalingFactor = platform.getScreenScalingFactor(_window.getSystemHandle());
 	// Use the screenScalingFactor
-	_window.create(sf::VideoMode(SCREEN_WIDTH * _screenScalingFactor, SCREEN_HEIGHT * _screenScalingFactor), "Tiananmen Square Tower Defence");
+	_window.create(sf::VideoMode(SCREEN_WIDTH * _screenScalingFactor, SCREEN_HEIGHT * _screenScalingFactor), "Mars");
 	_window.setFramerateLimit(60);
 	platform.setIcon(_window.getSystemHandle());
 

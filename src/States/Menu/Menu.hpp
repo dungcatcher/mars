@@ -1,5 +1,5 @@
-#include "././App.hpp"
-#include "./State.hpp"
+#include "../../App.hpp"
+#include "../State.hpp"
 
 class MainMenu : public State
 {
@@ -9,8 +9,4 @@ public:
 	void handleInput(sf::Event* event) override;
 	void update() override;
 	void draw(sf::RenderWindow* window) override;
-
-private:
-	sf::Texture _backgroundTexture;
-	sf::Sprite _backgroundSprite;
 };

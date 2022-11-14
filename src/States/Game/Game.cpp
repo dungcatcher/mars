@@ -18,5 +18,5 @@ void GameState::update()
 {}
 void GameState::draw(sf::RenderWindow* window)
 {
-	window->clear(sf::Color::Black);
+	window->clear(sf::Color::White);
 }
