@@ -8,8 +8,8 @@ public:
 	static void start();
 	static void run();
 
-	constexpr static float SCREEN_WIDTH = 840.0f;
-	constexpr static float SCREEN_HEIGHT = 480.0f;
+	constexpr static float screenWidth = 840.0f;
+	constexpr static float screenHeight = 480.0f;
 	static float _screenScalingFactor;
 
 	enum EnumStates
