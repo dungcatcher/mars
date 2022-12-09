@@ -16,27 +16,22 @@ GameState::~GameState()
 
 void GameState::loadChunks()
 {
-	// Amount of chunks to be loaded in each direction
-	int chunksX = ceil(App::screenWidth / (CHUNK_SIZE * TILE_SIZE));
-	int chunksY = ceil(App::screenHeight / (CHUNK_SIZE * TILE_SIZE));
+	int topLeftChunkX = floor((player.pixelPos.x - App::worldView.getCenter().x) / (CHUNK_SIZE * TILE_SIZE));
+	int topLeftChunkY = floor((player.pixelPos.y - App::worldView.getCenter().y) / (CHUNK_SIZE * TILE_SIZE));
 
-	// Must be odd so that the centre chunk is in the middle
-	if (chunksX % 2 == 0)
-		chunksX++;
-	if (chunksY % 2 == 0)
-		chunksY++;
+	int chunksVisibleX = ceil(App::worldView.getSize().x / (CHUNK_SIZE * TILE_SIZE));
+	int chunksVisibleY = ceil(App::worldView.getSize().y / (CHUNK_SIZE * TILE_SIZE));
 
-	for (int x = -int(chunksX / 2); x <= int(chunksX / 2); x++)
+	for (int x = topLeftChunkX; x < chunksVisibleX; x++)
 	{
-		for (int y = -int(chunksY / 2); y <= int(chunksY / 2); y++)
+		for (int y = topLeftChunkY; y < chunksVisibleY; y++)
 		{
-			sf::Vector2i targetChunkPos(x + player.chunkPos.x, y + player.chunkPos.y);
-			std::string targetChunkString = std::to_string(targetChunkPos.x) + ", " + std::to_string(targetChunkPos.y);
-
-			if (!chunks.count(targetChunkString))
+			std::string chunkString = std::to_string(x) + ',' + std::to_string(y);
+			if (chunks.find(chunkString) == chunks.end())
 			{
-				Chunk chunk = Chunk();
-				this->chunks[targetChunkString] = chunk;
+				Chunk chunk(sf::Vector2i(x, y));
+				chunks[chunkString] = chunk;
+				std::cout << chunkString << " ";
 			}
 		}
 	}

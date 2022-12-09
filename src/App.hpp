@@ -12,6 +12,8 @@ public:
 	constexpr static float screenHeight = 480.0f;
 	static float _screenScalingFactor;
 
+	static sf::View worldView;
+
 	enum EnumStates
 	{
 		Playing,

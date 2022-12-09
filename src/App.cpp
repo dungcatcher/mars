@@ -9,6 +9,7 @@ App::EnumStates App::_currentState;
 std::map<App::EnumStates, State*> App::_stateInstances;
 sf::RenderWindow App::_window;
 sf::Event App::_event;
+sf::View App::worldView;
 
 void App::start()
 {
@@ -26,6 +27,8 @@ void App::start()
 	_stateInstances[Menu] = new MainMenu();
 
 	_currentState = Menu;
+
+	worldView.reset(sf::FloatRect(0.0f, 0.0f, screenWidth, screenHeight));
 
 	run();
 }
