@@ -1,6 +1,5 @@
 #include "Game.hpp"
 #include "../../App.hpp"
-#include "PerlinNoise.hpp"
 
 const int CHUNK_SIZE = 16;
 const int TILE_SIZE = 10;
