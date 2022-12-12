@@ -48,4 +48,8 @@ void GameState::update()
 void GameState::draw(sf::RenderWindow* window)
 {
 	window->clear(sf::Color::White);
+	for (auto p : chunks)
+	{
+		p.second.draw(window);
+	}
 }
